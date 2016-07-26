@@ -1,0 +1,26 @@
+# Source: https://github.com/github/gitignore/blob/master/Unity.gitignore
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uilds/
+
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+*.pidb.meta
+
+sysinfo.txt
+
+# ------------------------------------------------------------------------
+
+*.swp
+
