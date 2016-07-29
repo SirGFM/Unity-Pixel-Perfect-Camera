@@ -154,7 +154,7 @@ public class PixelPerfectCamera : MonoBehaviour {
 	public int pixelsToUnits = 16;
 
 	/** Base material, should be a "unlit texture shader" */
-	public Material baseMaterial = null;
+	public Shader outputShader = null;
 
 	/** Camera to be made pixel perfect */
 	public Camera targetCamera = null;
@@ -195,7 +195,7 @@ public class PixelPerfectCamera : MonoBehaviour {
 	 * _virtualBuffer (which is set by that function call).
 	 */
 	private void createOutputMaterial() {
-		this._outputMaterial = Object.Instantiate<Material>(this.baseMaterial);
+		this._outputMaterial = new Material(this.outputShader);
 		this._outputMaterial.mainTexture = this._virtualBuffer;
 		this._outputMaterial.name = PixelPerfectCamera.materialName;
 	}
@@ -314,8 +314,8 @@ public class PixelPerfectCamera : MonoBehaviour {
 	 * Automatically convert a common camera to a pixel perfect one.
 	 */
 	void Awake() {
-		if (this.baseMaterial == null) {
-			Debug.LogError("No base material found!\nAssign the base material"
+		if (this.outputShader == null) {
+			Debug.LogError("No output shader found!\nAssign the output shader"
 					+ " on the inspector and run again. The default base"
 					+ " material can be found on the plugin directory as 'Unlit"
 					+ " Texture'");
